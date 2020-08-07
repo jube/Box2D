@@ -16,6 +16,10 @@ endif()
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
+set(CMAKE_CXX_VISIBILITY_PRESET hidden)
+
+option(BUILD_SHARED_LIBS "Build Box2D as a shared library" OFF)
+
 add_subdirectory(src)
 
 option(BOX2D_BUILD_UNIT_TESTS "Build the Box2D unit tests" ON)

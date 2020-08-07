@@ -23,6 +23,7 @@
 #ifndef B2_DISTANCE_JOINT_H
 #define B2_DISTANCE_JOINT_H
 
+#include "b2_api.h"
 #include "b2_joint.h"
 
 /// Distance joint definition. This requires defining an anchor point on both
@@ -30,7 +31,7 @@
 /// so that the initial configuration can violate the constraint
 /// slightly. This helps when saving and loading a game.
 /// @warning Do not use a zero or short length.
-struct b2DistanceJointDef : public b2JointDef
+struct B2_API b2DistanceJointDef : public b2JointDef
 {
 	b2DistanceJointDef()
 	{
@@ -65,7 +66,7 @@ struct b2DistanceJointDef : public b2JointDef
 
 /// A distance joint constrains two points on two bodies to remain at a fixed
 /// distance from each other. You can view this as a massless, rigid rod.
-class b2DistanceJoint : public b2Joint
+class B2_API b2DistanceJoint : public b2Joint
 {
 public:
 
