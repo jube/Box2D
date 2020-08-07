@@ -98,8 +98,15 @@ set(BOX2D_HEADER_FILES
 	../include/box2d/box2d.h)
 
 add_library(box2d ${BOX2D_SOURCE_FILES} ${BOX2D_HEADER_FILES})
-target_include_directories(box2d PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../include)
-target_include_directories(box2d PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+
+target_include_directories(box2d
+  PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/../include
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
+  PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
+
 set_target_properties(box2d PROPERTIES
 	CXX_STANDARD 11
     CXX_STANDARD_REQUIRED YES
@@ -124,6 +131,13 @@ target_compile_definitions(box2d
   PRIVATE
     box2d_EXPORTS
 )
+
+# TODO: if you merge https://github.com/erincatto/box2d/pull/630, you have to uncomment these lines!
+# install(
+#   FILES
+#     "${CMAKE_CURRENT_BINARY_DIR}/b2_api.h"
+#   DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/box2d"
+# )
 
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" PREFIX "src" FILES ${BOX2D_SOURCE_FILES})
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}/../include" PREFIX "include" FILES ${BOX2D_HEADER_FILES})

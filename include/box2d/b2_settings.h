@@ -23,9 +23,11 @@
 #ifndef B2_SETTINGS_H
 #define B2_SETTINGS_H
 
-#include <stddef.h>
-#include <assert.h>
-#include <float.h>
+#include <cstddef>
+#include <cassert>
+#include <cfloat>
+
+#include "b2_api.h"
 
 #if !defined(NDEBUG)
 	#define b2DEBUG
@@ -134,22 +136,22 @@ typedef unsigned int uint32;
 // Memory Allocation
 
 /// Implement this function to use your own memory allocator.
-void* b2Alloc(int32 size);
+B2_API void* b2Alloc(int32 size);
 
 /// If you implement b2Alloc, you should also implement this function.
-void b2Free(void* mem);
+B2_API void b2Free(void* mem);
 
 /// Logging function.
-void b2Log(const char* string, ...);
+B2_API void b2Log(const char* string, ...);
 
 /// Dump to a file. Only one dump file allowed at a time.
-void b2OpenDump(const char* fileName);
-void b2Dump(const char* string, ...);
-void b2CloseDump();
+B2_API void b2OpenDump(const char* fileName);
+B2_API void b2Dump(const char* string, ...);
+B2_API void b2CloseDump();
 
 /// Version numbering scheme.
 /// See http://en.wikipedia.org/wiki/Software_versioning
-struct b2Version
+struct B2_API b2Version
 {
 	int32 major;		///< significant changes
 	int32 minor;		///< incremental changes
@@ -157,6 +159,6 @@ struct b2Version
 };
 
 /// Current version.
-extern b2Version b2_version;
+extern B2_API b2Version b2_version;
 
 #endif
