@@ -111,6 +111,8 @@ set_target_properties(box2d PROPERTIES
 	CXX_STANDARD 11
     CXX_STANDARD_REQUIRED YES
     CXX_EXTENSIONS NO
+    VERSION ${PROJECT_VERSION}
+    SOVERSION ${PROJECT_VERSION_MAJOR}
 )
 
 generate_export_header(box2d
