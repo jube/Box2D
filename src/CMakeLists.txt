@@ -130,11 +130,6 @@ if (NOT BUILD_SHARED_LIBS)
   )
 endif()
 
-target_compile_definitions(box2d
-  PRIVATE
-    box2d_EXPORTS
-)
-
 install(
   FILES
     "${CMAKE_CURRENT_BINARY_DIR}/b2_api.h"
