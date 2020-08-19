@@ -23,9 +23,9 @@
 #ifndef B2_SETTINGS_H
 #define B2_SETTINGS_H
 
-#include <cstddef>
-#include <cassert>
-#include <cfloat>
+#include <stddef.h>
+#include <assert.h>
+#include <float.h>
 
 #include "b2_api.h"
 
