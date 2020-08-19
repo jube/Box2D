@@ -17,6 +17,7 @@ endif()
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 set(CMAKE_CXX_VISIBILITY_PRESET hidden)
+set(CMAKE_VISIBILITY_INLINES_HIDDEN ON)
 
 option(BUILD_SHARED_LIBS "Build Box2D as a shared library" OFF)
 
